@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Girl Scout Cookie Order Form</title>
+  <style>
+    * {
+      font-family: Arial, Helvetica, sans-serif;
+}
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    legend {
+        font-size: 30px;
+        color: green;
+        text-align: center;
+        text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+        text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+    }
+
+    #button {
+        margin-left: 20px;
+        padding: 20px,0px; 
+        border: 1px solid green;
+        background-color: lightgray;
+        border-radius: 5px;
+        font: inherit;
+        font-weight: bold;
+        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    }
+
+    #orderinfo {
+
+    }
+  </style>
+  <script src="gs_order.js"></script>
+</head>
+<body>
+  <legend>Girl Scout Cookie Order Form</legend>
+  <form>
+    <fieldset>
+      <h1>Account Info</h1>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" required>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" required>
+      <label for="streetAddress">Street Address:</label>
+      <input type="text" id="streetAddress" required>
+      <label for="city">City:</label>
+      <input type="text" id="city" required>
+      <label for="state">State:</label>
+      <input type="text" id="state" size="2" maxlength="2" required>
+      <label for="zipCode">Zip Code:</label>
+      <input type="text" id="zipCode" size="5" maxlength="5" pattern="[0-9]{5}" required>
+    </fieldset>
+
+    <fieldset>
+      <h1>Shipping Address</h1>
+      
+      <label for="useSameAddress">Use address for shipping</label>
+      <input type="radio" id="useSameAddress" name="shipping" value="same" checked onchange="handleRadioChange()">
+      <label for="useSeparateAddress">Use separate shipping address</label>
+      <input type="radio" id="useSeparateAddress" name="shipping" value="separate" onchange="handleRadioChange()">
+
+      <section id="shippingSection" style="display: none;">
+        <fieldset>
+          <h1>Shipping Information</h1>
+          <label for="shippingFirstName">First Name:</label>
+          <input type="text" id="shippingFirstName">
+          <label for="shippingLastName">Last Name:</label>
+          <input type="text" id="shippingLastName">
+          <label for="shippingStreetAddress">Street Address:</label>
+          <input type="text" id="shippingStreetAddress">
+          <label for="shippingCity">City:</label>
+          <input type="text" id="shippingCity">
+          <label for="shippingState">State:</label>
+          <input type="text" id="shippingState" size="2" maxlength="2">
+          <label for="shippingZipCode">Zip Code:</label>
+          <input type="text" id="shippingZipCode" size="5" maxlength="5" pattern="[0-9]{5}">
+        </fieldset>
+      </section>
+    </fieldset>
+
+    <fieldset>
+      <h1>Cookies</h1>
+      <p>Each box is $3.50. If you order 10 or less boxes we will charge 5% of your total cost. Order 10 or more boxes and you get <strong>FREE</strong> shipping.</p>
+      <section>
+        <label for="thinMints">Thin Mints</label>
+        <input type="checkbox" id="thinMints">
+        <label for="thinMintsQuantity">Quantity:</label>
+        <input type="text" id="thinMintsQuantity" size="2">
+      </section>
+
+      <section>
+        <label for="doSiDos">Do Si Do's</label>
+        <input type="checkbox" id="doSiDos">
+        <label for="doSiDosQuantity">Quantity:</label>
+        <input type="text" id="doSiDosQuantity" size="2">
+      </section>
+
+      <section>
+        <label for="lemonCremes">Lemon Cremes</label>
+        <input type="checkbox" id="lemonCremes">
+        <label for="lemonCremesQuantity">Quantity:</label>
+        <input type="text" id="lemonCremesQuantity" size="2">
+      </section>
+
+      <section>
+        <label for="sandDollars">Sand Dollars</label>
+        <input type="checkbox" id="sandDollars">
+        <label for="sandDollarsQuantity">Quantity:</label>
+        <input type="text" id="sandDollarsQuantity" size="2">
+      </section>
+
+      <section>
+        <label for="chocolateChip">Chocolate Chip</label>
+        <input type="checkbox" id="chocolateChip">
+        <label for="chocolateChipQuantity">Quantity:</label>
+        <input type="text" id="chocolateChipQuantity" size="2">
+      </section>
+    </fieldset>
+
+    <fieldset>
+      <h1>Order Info</h1>
+      <label for="orderInfo">Order Information:</label>
+      <p>Please review your order above before you submit your order. You will see your order summary after the order is placed.</p>
+      <textarea id="orderInfo" rows="10"></textarea>
+      <input type="button" id="button" value="Submit" onclick="calculateOrder()">
+    </fieldset>
+  </form>
+</body>
+</html>
