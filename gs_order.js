@@ -1,3 +1,34 @@
+function handleRadioChange() {
+  var useSameAddress = document.getElementById("useSameAddress").checked;
+  var shippingSection = document.getElementById("shippingSection");
+
+  if (useSameAddress) {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var streetAddress = document.getElementById("streetAddress").value;
+    var city = document.getElementById("city").value;
+    var state = document.getElementById("state").value;
+    var zipCode = document.getElementById("zipCode").value;
+
+    document.getElementById("shippingFirstName").value = firstName;
+    document.getElementById("shippingLastName").value = lastName;
+    document.getElementById("shippingStreetAddress").value = streetAddress;
+    document.getElementById("shippingCity").value = city;
+    document.getElementById("shippingState").value = state;
+    document.getElementById("shippingZipCode").value = zipCode;
+
+    shippingSection.style.display = "block";
+  } else {
+    document.getElementById("shippingFirstName").value = "";
+    document.getElementById("shippingLastName").value = "";
+    document.getElementById("shippingStreetAddress").value = "";
+    document.getElementById("shippingCity").value = "";
+    document.getElementById("shippingState").value = "";
+    document.getElementById("shippingZipCode").value = "";
+
+    shippingSection.style.display = "none";
+  }
+}
 function calculateOrder() {
     var thinMintsQuantity = parseInt(document.getElementById("thinMintsQuantity").value) || 0;
     var doSiDosQuantity = parseInt(document.getElementById("doSiDosQuantity").value) || 0;

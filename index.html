@@ -35,16 +35,12 @@
     #button {
         margin-left: 20px;
         padding: 20px,0px; 
-        border: 1px solid green;
+        border: 3px solid green;
         background-color: lightgray;
         border-radius: 5px;
         font: inherit;
         font-weight: bold;
         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    }
-
-    #orderinfo {
-
     }
   </style>
   <script src="gs_order.js"></script>
@@ -71,9 +67,9 @@
     <fieldset>
       <h1>Shipping Address</h1>
       
-      <label for="useSameAddress">Use address for shipping</label>
+      <label for="useSameAddress">Use different shipping address</label>
       <input type="radio" id="useSameAddress" name="shipping" value="same" checked onchange="handleRadioChange()">
-      <label for="useSeparateAddress">Use separate shipping address</label>
+      <label for="useSeparateAddress">Use same address above</label>
       <input type="radio" id="useSeparateAddress" name="shipping" value="separate" onchange="handleRadioChange()">
 
       <section id="shippingSection" style="display: none;">
