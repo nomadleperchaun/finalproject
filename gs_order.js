@@ -1,6 +1,6 @@
 function handleRadioChange() {
   var useSameAddress = document.getElementById("useSameAddress").checked;
-  var shippingSection = document.getElementById("shippingSection");
+  var useSeparateAddress = document.getElementById("useSeparateAddress");
 
   if (useSameAddress) {
     var firstName = document.getElementById("firstName").value;
@@ -26,9 +26,10 @@ function handleRadioChange() {
     document.getElementById("shippingState").value = "";
     document.getElementById("shippingZipCode").value = "";
 
-    shippingSection.style.display = "none";
   }
 }
+
+
 function calculateOrder() {
     var thinMintsQuantity = parseInt(document.getElementById("thinMintsQuantity").value) || 0;
     var doSiDosQuantity = parseInt(document.getElementById("doSiDosQuantity").value) || 0;
